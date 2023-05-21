@@ -1,0 +1,838 @@
+@import "variable";
+@import "mixin";
+@import "functions";
+@import "default";
+
+@include temp-area;
+
+.main-header,
+main {
+   // max-width: 1200px;
+   margin: 0 auto;
+}
+
+.main-header {
+   @include d-pos($pos: relative, $hg: 41.2rem);
+   background: var(--pink);
+   // background: #999;
+
+   .main-header-gnb {
+      @include d-pos($pos: relative, $zidx: 2, $hg: 3.5rem, $pg: 7rem 2rem 0 2.85rem);
+      @include d-flex-set(space-between);
+
+      .main-header-logo {
+         @include d-pos($wh: 9.4rem, $hg: 3.5rem);
+         @include d-img-set(1, "logo.png");
+      }
+
+      .main-header-goto {
+         @include d-flex-set(center);
+
+         > li:first-child {
+            @include icon-pos-center(40, 40, "icon_map.svg", 2.3rem);
+         }
+         > li:last-child {
+            @include icon-pos-center(40, 40, "icon_bell.svg", 2.3rem);
+         }
+      }
+   }
+
+   .main-nav {
+      @include d-pos($pos: relative, $zidx: 2);
+
+      ul {
+         @include d-flex-set(center);
+         padding-top: 2.25rem;
+
+         li {
+            @include d-fonts(700, 1.8rem);
+
+            a {
+               @include d-fonts(null, null, 0, -1px, var(--white));
+               padding: 0.6rem 1.2rem;
+               background: transparent;
+               border-radius: 1.8rem;
+            }
+
+            &.on a {
+               color: var(--pink);
+               background: var(--white);
+            }
+         }
+      }
+   }
+
+   .visual {
+      @include d-pos($absc: "L", $pos: absolute, $tp: 0, $zidx: 1, $wh: 36rem, $hg: 50rem);
+
+      background: f-imgset(1, "visual_01_text.svg", 4rem 21.1rem, 19.25rem 8.65rem),
+         f-imgset(1, "visual_01_text_bg.svg", 4rem 21.2rem, 19.25rem 8.65rem),
+         f-imgset(1, "visual_01_logo.svg", 4rem 30.35rem, 7.5rem 3.45rem),
+         f-imgset("RB", "visual_01_girl.png", $size: 20.65rem 28.6rem), f-imgset("CT", "visual_01_bg.svg");
+
+      .visual-btn-go {
+         @include d-pos($pos: absolute, $lt: 4rem, $tp: 35.3rem, $zidx: 3, $wh: 5.25rem, $hg: 3rem);
+         @include hide-text;
+         background: f-imgset("LT", "visual_01_btn_go.svg");
+      }
+   }
+}
+
+.open-main-program {
+   @include d-pos($absc: "L", $pos: absolute, $tp: 0, $zidx: 5, $wh: 4.5rem, $hg: 5.5rem, $dsp: block);
+   background: var(--white);
+   box-shadow: 0rem 0.5rem 0rem rgba(0, 0, 0, 0.06);
+   border-radius: 0rem 0rem 4.5rem 4.5rem;
+
+   &::after {
+      @include d-pos($absc: "L", $pos: absolute, $wh: 1.2rem, $hg: 0.6rem, $tp: 3.9rem);
+      @include d-img-set(1, "arrow_down.svg");
+
+      content: "";
+      font-size: 0;
+   }
+}
+
+main {
+   @include d-pos($pos: relative, $zidx: 5, $pg: 0 0 2rem);
+}
+
+.main-intro-section {
+   @include d-pos($wh: auto, $hg: 14.95rem, $mg: 2.1025rem 2rem 0);
+   @include box-style;
+
+   .main-intro-section-a {
+      @include d-flex-set(space-between);
+      padding: 2rem;
+      letter-spacing: -0.1rem;
+      line-height: 0;
+
+      > .ment {
+         @include d-fonts(normal, 1.9rem, $color: var(--font-color), $ws: nowrap);
+
+         span {
+            font-weight: 700;
+            color: var(--font-green);
+         }
+      }
+
+      > .icons {
+         @include d-flex-set(flex-end);
+
+         img {
+            @include d-pos($wh: 3rem, $hg: 3rem);
+         }
+
+         img:nth-child(2) {
+            order: 2;
+         }
+         img:last-child {
+            @include d-pos($wh: 2.8rem, $hg: auto);
+            order: 1;
+            margin-right: -1.1rem;
+         }
+      }
+   }
+
+   .main-intro-section-b {
+      @include d-flex-set(space-around, unset) {
+         padding: 0 0.5rem;
+      }
+
+      // align-items: inherit;
+      li {
+         @include d-pos($pos: relative, $wh: 25%, $dsp: flex);
+         flex-direction: column;
+         align-items: center;
+
+         &:not(:first-child)::before {
+            @include d-pos($pos: absolute, $lt: 0, $wh: 1px, $hg: 100%, $dsp: block);
+            content: "";
+            background-color: var(--gray-1);
+         }
+
+         &.stamp {
+            position: relative;
+         }
+
+         h3 {
+            order: 2;
+            @include d-fonts(400, 1.4rem, null, -0.1rem, var(--font-gray));
+
+            &.stamp {
+               @include d-pos($pos: absolute, $btm: 0);
+            }
+         }
+
+         p {
+            order: 1;
+            @include d-fonts(bold, 3.5rem, 3.95rem, -0.1rem, $family: 1);
+
+            &.stamp {
+               position: relative;
+               min-width: 3.8rem;
+
+               > span {
+                  @include d-pos($pos: absolute, $rt: 0, $tp: 0, $zidx: 2, $trfm: translateX(40%));
+                  @include d-fonts(null, 1.2rem, 1.2485rem, -0.05rem, var(--font-pink));
+
+                  padding: 0.3rem 0.5rem 0;
+                  background: var(--white);
+                  border: 0.2rem solid var(--pink);
+                  box-shadow: 0 0.2rem 0 var(--shadow-dark);
+                  border-radius: 1.4rem;
+               }
+
+               &::after {
+                  @include d-pos($pos: absolute, $lt: 0, $tp: 0, $zidx: 1, $wh: 38px, $hg: 38px, $dsp: block);
+                  @include d-img-set(1, "icon_stamp.svg");
+                  content: "";
+               }
+            }
+         }
+      }
+   }
+}
+
+.main-thanks-to {
+   @include d-pos($pos: relative, $mg: 4rem 0 0, $pg: 0 0 4rem);
+
+   .thanks-to-title {
+      @include d-pos($wh: 8.7rem, $hg: 3rem, $mg: 0 0 1.7rem 1.5rem);
+      @include hide-text;
+      @include d-img-set(1, "text_01.svg");
+   }
+
+   .thanks-to-more {
+      @include goto-btn-style;
+   }
+
+   // .swiper,
+   .main-thanks-to-list {
+      max-width: 100%;
+      min-height: 27.9rem;
+      padding: 0 2rem 1rem;
+   }
+
+   .main-thanks-to-list-layer {
+      display: flex;
+      flex-basis: 26.4rem;
+
+      li {
+         height: 27.9rem;
+         width: 26.4rem;
+         @include box-style;
+
+         display: grid;
+         grid-template-rows: 7.5rem 2.1rem 11.4rem auto;
+         grid-template-columns: 1fr 1fr;
+         grid-template-areas: "logo    user" "hello    hello" "text-area    text-area" "terms  goto-all";
+
+         h3 {
+            position: relative;
+            grid-area: logo;
+            img {
+               @include d-pos($absc: "T", $pos: absolute, $lt: 2rem, $wh: 8.7rem, $hg: auto);
+            }
+         }
+         .p1 {
+            position: relative;
+            grid-area: user;
+            span {
+               @include d-pos($absc: "T", $pos: absolute, $rt: 2rem);
+               @include d-fonts(normal, 1.4rem, null, -0.05em, var(--font-gray-2), $ws: nowrap);
+            }
+         }
+         h4 {
+            position: relative;
+            grid-area: hello;
+            @include d-fonts($size: 1.6rem, $spacing: -0.05em, $indent: 2rem, $ellps: 1);
+
+            > span {
+               @include d-pos($pos: absolute, $lt: 0, $btm: 0);
+               @include d-fonts(700, $color: var(--font-color));
+            }
+         }
+         .p2 {
+            grid-area: text-area;
+            padding: 1rem 2rem 0;
+            @include d-fonts(400, 1.4rem, 2.05rem, -0.05em, var(--font-gray-3), $flow: hidden);
+         }
+         > span {
+            grid-area: terms;
+            padding: 1rem 0 0 2rem;
+            @include d-fonts(500, $color: var(--font-gray-3));
+         }
+
+         .p3 {
+            grid-area: goto-all;
+            text-align: right;
+            padding: 1rem 2rem 0 0;
+
+            > button {
+               @include hide-text;
+               @include d-img-set(1, "btn_arrow_r.svg");
+               width: 3rem;
+               height: 3rem;
+            }
+         }
+      }
+   }
+}
+
+.sy-again {
+   position: relative;
+   // min-height: 38.7rem;
+   padding: 2.5rem 0 3rem;
+   background-color: var(--blue-1);
+
+   .h2 {
+      padding: 0 0 2rem 2rem;
+      @include d-fonts(800, 1.8rem, null, -0.05em, var(--white), $family: 1);
+   }
+
+   .go-btn {
+      @include goto-btn-style() {
+         top: 2.15rem;
+      }
+   }
+
+   .members {
+      padding: 0 2rem;
+      overflow: hidden;
+
+      .list-wrap {
+         display: flex;
+
+         .list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            // flex-basis: auto;
+            // flex-grow: 2;
+
+            li {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               width: 17.25rem;
+               min-height: 8.6rem;
+               @include box-style;
+
+               > div {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: column;
+                  width: 50%;
+
+                  &.pic {
+                     > img:first-child {
+                        @include d-pos($trfm: translateY(0.5rem), $wh: 6rem, $hg: auto);
+                     }
+
+                     > img:last-child {
+                        @include d-pos($pos: relative, $zidx: 1, $wh: 4.25rem, $hg: auto, $trfm: translateY(-0.5rem));
+                     }
+                  }
+
+                  &.conts {
+                     justify-content: center;
+                     align-items: flex-start;
+                     gap: 0.2rem;
+
+                     .h3 {
+                        @include d-fonts(700, 1.8rem, null, -0.05em, var(--font-blue-1));
+                     }
+                     .name {
+                        @include d-fonts(400, 1.4rem, null, -0.05em, var(--font-blue-1));
+                     }
+                     .date {
+                        @include d-fonts(400, 1.2rem, $color: var(--font-blue-2));
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      .pazing {
+         padding-top: 1rem;
+
+         .swiper-pagination-bullet {
+            background-color: var(--font-blue-2);
+            opacity: 1;
+            border-radius: 100%;
+         }
+         .swiper-pagination-bullet-active {
+            width: 3rem;
+            height: 0.7rem;
+            border-radius: 0.35rem;
+            background-color: var(--white);
+         }
+      }
+   }
+
+   .main-banner {
+      width: 32rem;
+      height: 15rem;
+      margin: 3rem auto 0;
+      @include d-img-set(1, "banner_01.png");
+   }
+}
+
+.box-style-a {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 5.5rem 1fr;
+   grid-template-areas:
+      "title  more"
+      "conts  conts";
+
+   padding: 4rem 2rem 0;
+   background-color: var(--white);
+
+   &.shop {
+      padding-bottom: 1.6rem;
+   }
+
+   .h2 {
+      grid-area: title;
+      position: relative;
+      > span {
+         @include text-box-style();
+         position: absolute;
+         left: -0.5rem;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+   }
+
+   .list {
+      grid-area: conts;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      gap: 1.5rem;
+
+      > .item {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         width: 15.25rem;
+
+         figure {
+            width: 100%;
+            margin: 0 auto;
+
+            &.t2 {
+               a {
+                  height: 12.65rem;
+                  &::after {
+                     display: none;
+                  }
+               }
+
+               .expl {
+                  height: initial;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+               }
+            }
+
+            > a {
+               @include d-pos(null, block, relative, $wh: 100%, $hg: 10rem);
+               @include box-style();
+               overflow: hidden;
+
+               &::after {
+                  content: "";
+                  @include d-pos(null, block, absolute, 0, 0, 0, 0);
+                  @include d-img-set(2, "btn_play.png", center, 3rem auto, $color: rgba(0, 0, 0, 0.4));
+               }
+
+               img {
+                  @include d-pos("B", $pos: relative, $wh: 110%, $hg: auto);
+               }
+            }
+
+            figcaption {
+               > strong {
+                  @include d-pos(null, $dsp: block, $wh: 100%, $pg: 1.5rem 0 0);
+                  @include d-fonts(700, 1.6rem, 2.3rem, -0.05em, var(--font-color), $ellps: 1);
+               }
+            }
+         }
+
+         .expl {
+            @include d-pos($wh: 100%, $hg: 4.1rem, $pg: 0.1rem 0 0);
+            @include d-fonts(400, 1.4rem, 2.05rem, -0.05em, var(--font-gray));
+            overflow: hidden;
+
+            &.del-price {
+               font-size: 1.2rem;
+            }
+         }
+
+         .price-star {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+
+            > strong {
+               @include d-fonts(500, 1.6rem, 2.3rem, $color: var(--green-1));
+            }
+
+            > span.score {
+               display: flex;
+               justify-content: flex-start;
+               align-items: center;
+
+               > span {
+                  @include d-pos($wh: 1.3rem, $hg: 1.2rem);
+
+                  &.on {
+                     @include d-img-set(1, "icon_star_on.png");
+                  }
+                  &.off {
+                     @include d-img-set(1, "icon_star_off.png");
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   .goto {
+      grid-area: more;
+      position: relative;
+
+      > .goto-more {
+         @include goto-btn-style() {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+         }
+      }
+   }
+}
+
+.box-style-b {
+   position: relative;
+   padding: 3rem 2rem 2.025rem;
+   background-color: var(--white);
+
+   &.notice {
+      background-color: var(--gray-1);
+      padding-bottom: 0;
+   }
+
+   &:not(.notice)::before {
+      content: "";
+      @include d-pos(null, block, absolute, 0, 0, 0, $hg: 1rem);
+      background: var(--white-2);
+      box-sizing: border-box;
+      border-top: 0.1rem solid var(--gray-1);
+      border-bottom: 0.1rem solid var(--gray-1);
+   }
+
+   > .h2 {
+      @include text-box-style;
+      transform: translateX(-0.5rem);
+   }
+
+   ul > li {
+      padding-bottom: 2.05rem;
+
+      &:not(:first-child) {
+         border-top: 1px solid var(--white-3);
+      }
+
+      > a {
+         display: block;
+         padding: 2rem 0 0;
+
+         > strong {
+            @include d-fonts(700, 1.6rem, 2.3rem, -0.05em, var(--font-color));
+         }
+
+         > p {
+            @include d-pos($hg: 8.2rem, $mg: 0.5rem 0);
+            @include d-fonts(400, 1.4rem, 2.05rem, -0.05em, var(--font-gray-3));
+            overflow: hidden;
+
+            &.noti {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               height: initial;
+
+               > .txt {
+                  width: 73%;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+               }
+               > .date {
+                  width: 24%;
+                  text-align: right;
+               }
+            }
+         }
+      }
+
+      > .info {
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         gap: 1.35rem;
+
+         > * {
+            @include d-fonts(400, 1.4rem, 2.05rem, -0.05em, var(--gray));
+         }
+
+         > strong {
+            position: absolute;
+            left: 2rem;
+            font-weight: 500;
+            color: var(--font-gray-3);
+         }
+
+         > span::before {
+            content: "";
+            @include d-pos($dsp: inline-block, $wh: 1.2rem, $hg: 1.1rem, $mg: 0 0.25rem 0 0);
+            @include d-img-set(1, "icon_heart_1.png");
+         }
+
+         > a::before {
+            content: "";
+            @include d-pos($dsp: inline-block, $wh: 1.2rem, $hg: 1.2rem, $mg: 0 0.25rem 0 0);
+            @include d-img-set(1, "icon_reply.png");
+         }
+      }
+   }
+
+   > .goto-more {
+      @include goto-btn-style {
+         top: 3.55rem;
+      }
+   }
+}
+
+.cheering {
+   height: 14.6rem;
+   padding: 0 2rem;
+
+   @include d-img-set(2, "pic_cheering.png", right bottom, 36rem 13.4rem, $color: var(--pink));
+
+   > h2 {
+      padding-top: 2.5rem;
+      @include d-fonts(800, 2.3rem, 100%, -0.05em, var(--white), 0.5rem, $family: 1);
+   }
+   > p {
+      padding: 0.5rem 0 0.9rem 0.5rem;
+      @include d-fonts(400, 1.4rem, 1.8rem, -0.05em, var(--white), $family: 1);
+   }
+   > button {
+      @include d-fonts(700, 1rem, 130%, -0.05em, var(--pink), $family: 1);
+
+      border-radius: 15rem;
+      padding: 0.5rem 1rem;
+   }
+}
+
+.footer {
+   height: 8rem;
+   background-color: var(--white);
+
+   .footer-nav {
+      @include d-pos($pos: relative, $tp: 50%, $trfm: translateY(-50%));
+
+      ul {
+         @include d-flex-set(space-evenly);
+         height: 4.4rem;
+
+         li {
+            @include d-flex-set(space-between);
+            flex-direction: column;
+            width: 5.05rem;
+            height: 100%;
+
+            @for $i from 1 through 4 {
+               &:nth-child(#{$i}) {
+                  &::before {
+                     content: "";
+                     display: block;
+                     width: if($i == 3, 1.4rem, 1.8rem);
+                     height: if($i == 1, 2rem, 1.85rem);
+                     background: f-imgset("C", "icon_footer_#{$i}.png");
+                  }
+               }
+            }
+
+            > a {
+               @include d-fonts(500, 1.4rem, 100%, -0.1rem, var(--font-gray-3), $family: null);
+            }
+         }
+      }
+   }
+}
+
+.open-main-program-layer {
+   @include d-pos(null, none, absolute, 0, 0, 0, 0, 100);
+   overflow-y: scroll;
+
+   .list-wrap {
+      @include d-pos($pos: relative, $zidx: 2, $mg: 0 0 5rem, $trfm: translateY(calc(-100% - 3rem)));
+      background-color: var(--white);
+
+      .list {
+         display: flex;
+         justify-content: space-between;
+         align-items: stretch;
+         flex-direction: column;
+         padding: 2.7rem 2rem 0;
+
+         > li {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: 32rem;
+            min-height: 8.6rem;
+            padding: 0.1rem 0;
+
+            &:not(:first-child)::before {
+               @include d-pos(null, block, absolute, 0, 0, 0, $hg: 0.1rem);
+               content: "";
+               background-color: var(--gray-2);
+            }
+            &:is(:last-child)::after {
+               @include d-pos(null, block, absolute, 0, 0, $btm: -0.1rem, $hg: 0.1rem);
+               content: "";
+               background-color: var(--gray-2);
+            }
+
+            > div {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+
+               &.pic {
+                  flex-grow: 7.5rem;
+                  min-width: 7.5rem;
+                  width: 7.5rem;
+                  > img:first-child {
+                     @include d-pos($trfm: translateY(0.5rem), $wh: 6rem, $hg: auto);
+                  }
+
+                  > img:last-child {
+                     @include d-pos($pos: relative, $zidx: 1, $wh: 4.25rem, $hg: auto, $trfm: translateY(-0.5rem));
+                  }
+               }
+
+               &.conts {
+                  position: relative;
+                  flex-grow: 1;
+                  align-items: flex-start;
+                  gap: 0.2rem;
+                  padding-left: 1.5rem;
+
+                  .h3 {
+                     @include d-fonts(700, 1.6rem, null, -0.05em, var(--font-color));
+                  }
+
+                  > ul {
+                     display: flex;
+                     flex-wrap: wrap;
+                     max-height: 5.85rem;
+                     overflow: hidden;
+
+                     > li {
+                        padding: 0 0.5rem 0 0;
+                        line-height: 1.7375rem;
+                     }
+
+                     a {
+                        @include d-fonts(400, 1.2rem, 1.75rem, -0.05em, var(--font-gray));
+                     }
+                  }
+               }
+            }
+
+            > a.goto-btn {
+               display: block;
+               min-width: 5rem;
+               height: 5rem;
+               line-height: 0;
+               @include d-img-set(2, "arrow_right.png", center, 0.6rem 1.05rem);
+            }
+         }
+      }
+
+      .list-goto {
+         position: relative;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         height: 10.55rem;
+         background: var(--gray-alpha-1);
+
+         &::before {
+            @include d-pos(null, block, absolute, 50%, 50%, $trfm: translate(-50%, -50%), $wh: 0.1rem, $hg: 4rem);
+            content: "";
+            background-color: var(--gray-alpha-2);
+         }
+
+         > li {
+            > a {
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               @include d-fonts(400, 1.2rem, 1.75rem, -0.05em, var(--font-gray));
+
+               > b {
+                  @include d-fonts(700, 1.4rem, 2.05rem, -0.05em, var(--font-color));
+               }
+            }
+         }
+      }
+
+      > .close-main-program {
+         @include d-pos(null, block, absolute, 50%, $btm: 0, $trfm: translate(-50%, 50%), $wh: 4.5rem, $hg: 4.5rem);
+         background: f-imgset("C", "btn_popup_close.png", $size: 4.5rem auto);
+      }
+   }
+
+   &::after {
+      @include d-pos(null, null, fixed, 0, 0, 0, 0, 1);
+      content: "";
+      background-color: rgba(0, 128, 0, 0.274);
+   }
+
+   &.on {
+      .list-wrap {
+         animation-name: open-aside-main;
+         animation-timing-function: ease;
+         animation-duration: 0.5s;
+         animation-fill-mode: forwards;
+      }
+   }
+
+   &.off {
+      .list-wrap {
+         animation-name: open-aside-main-revers;
+         animation-timing-function: ease;
+         animation-duration: 0.5s;
+         animation-fill-mode: forwards;
+      }
+   }
+}
+
+@import "animation";
+@import "responsive";
