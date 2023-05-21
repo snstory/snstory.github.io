@@ -1,0 +1,25 @@
+@media screen and (max-width: 750px) {
+   main {
+      h1 {
+         font-size: 2.6rem;
+
+         & + ul {
+            padding: 3rem 0 0 2rem;
+
+            li {
+               font-size: 1.5rem;
+               line-height: 2.2rem;
+
+               > a {
+                  font-family: "NanumSquareRound";
+                  &::before {
+                     display: inline-block;
+                     padding-right: 1rem;
+                     content: ">>";
+                  }
+               }
+            }
+         }
+      }
+   }
+}

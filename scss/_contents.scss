@@ -1,0 +1,44 @@
+html {
+   height: 100%;
+}
+
+body {
+   height: 100%;
+
+   &::before {
+      @include d-bg-set($opacity: 1);
+      background: url(../images/bg.jpg) repeat center / cover;
+   }
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+main {
+   position: relative;
+   transform: translateY(-30%);
+   color: #fff;
+
+   h1 {
+      font-size: 4.2rem;
+
+      & + ul {
+         padding: 7rem 0 0 2rem;
+
+         li {
+            font-size: 2rem;
+            line-height: 3.2rem;
+
+            > a {
+               font-family: "NanumSquareRound";
+               &::before {
+                  display: inline-block;
+                  padding-right: 1rem;
+                  content: ">>";
+               }
+            }
+         }
+      }
+   }
+}
