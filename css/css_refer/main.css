@@ -172,7 +172,7 @@ textarea {
 
 /* Style */
 html {
-  font-size: 10px;
+  font-size: 20px;
 }
 
 body {
@@ -250,9 +250,7 @@ html {
 
 body {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--white);
 }
 body::before {
   display: block;
@@ -264,31 +262,81 @@ body::before {
   bottom: 0;
   z-index: -1;
   opacity: 1;
-  background: url(../images/bg.jpg) repeat center/cover;
+  top: 4rem;
+  background: url(../images/bg.jpg) no-repeat center/cover;
 }
 
-main {
+.wrapper {
+  display: grid;
+  grid-template-areas: "header  .   ." "header  main   main" "footer  footer   footer";
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 1.2fr 3fr;
   position: relative;
-  transform: translateY(-30%);
-  color: #fff;
+  max-width: 1200px;
+  min-height: 100%;
+  margin: 0 auto;
 }
-main h1 {
-  font-size: 4.2rem;
+.wrapper header {
+  grid-area: header;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
-main h1 + ul {
-  padding: 7rem 0 0 2rem;
+.wrapper header .title-logo {
+  position: relative;
+  transform: translate(1rem, 0.5rem);
+  color: rgba(61, 61, 61, 0.658);
+  letter-spacing: 0.2rem;
+  font-weight: normal;
 }
-main h1 + ul li {
-  font-size: 2rem;
-  line-height: 3.2rem;
+.wrapper header > nav {
+  padding: 0 0 0 1.5rem;
 }
-main h1 + ul li > a {
-  font-family: "NanumSquareRound";
+.wrapper header > nav > ul {
+  padding: 2rem 0 0;
 }
-main h1 + ul li > a::before {
-  display: inline-block;
-  padding-right: 1rem;
-  content: ">>";
+.wrapper header > nav > ul li {
+  padding: 1rem 0 0;
+}
+.wrapper main {
+  grid-area: main;
+  padding: 1rem;
+}
+.wrapper main > ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.wrapper main > ul > li {
+  position: relative;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  padding: 0.5rem 1.5rem;
+}
+.wrapper main > ul > li::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(189, 17, 17, 0.644);
+  border-radius: 1rem;
+}
+.wrapper footer {
+  grid-area: footer;
+  padding: 1rem 0 0;
+}
+.wrapper footer > h1 {
+  transform: translateX(1rem);
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: normal;
+  letter-spacing: 0.2rem;
 }
 
 @keyframes open-aside-main {
@@ -307,23 +355,32 @@ main h1 + ul li > a::before {
     transform: translateY(calc(-100% - 3rem));
   }
 }
-@media screen and (max-width: 750px) {
-  main h1 {
-    font-size: 2.6rem;
+@media screen and (max-width: 700px) {
+  .wrapper {
+    display: block;
+    grid-template-areas: initial;
+    grid-template-rows: initial;
+    grid-template-columns: initial;
   }
-  main h1 + ul {
-    padding: 3rem 0 0 2rem;
+  .wrapper header > nav {
+    padding: 0 0 2rem 0;
   }
-  main h1 + ul li {
-    font-size: 1.5rem;
-    line-height: 2.2rem;
+  .wrapper header > nav > ul {
+    display: flex;
+    justify-content: space-around;
   }
-  main h1 + ul li > a {
-    font-family: "NanumSquareRound";
+  .wrapper footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
-  main h1 + ul li > a::before {
-    display: inline-block;
-    padding-right: 1rem;
-    content: ">>";
+  .wrapper footer > h1 {
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=main.css.map */

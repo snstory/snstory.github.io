@@ -1,10 +1,9 @@
 @mixin icon-pos-center($wh, $hg, $src, $isw: null, $ish: null, $pos: null) {
+   $pos: if($pos==null, center, $pos);
+
    width: if(unitless($wh), #{$wh}px, $wh);
    height: if(unitless($hg), #{$hg}px, $hg);
-   background-image: url("#{$img-path}#{$src}");
-   background-position: if($pos==null, center, $pos);
-   background-size: $isw $ish;
-   background-repeat: no-repeat;
+   background: url("#{$img-path}#{$src}") no-repeat $pos / $isw $ish;
 }
 
 @mixin box-style($bg-color: var(--white), $b-radius: 1.5rem) {

@@ -1,24 +1,36 @@
-@media screen and (max-width: 750px) {
-   main {
-      h1 {
-         font-size: 2.6rem;
+@media screen and (max-width: 700px) {
+   .wrapper {
+      display: block;
+      grid-template-areas: initial;
+      grid-template-rows: initial;
+      grid-template-columns: initial;
 
-         & + ul {
-            padding: 3rem 0 0 2rem;
+      header {
+         > nav {
+            padding: 0 0 2rem 0;
 
-            li {
-               font-size: 1.5rem;
-               line-height: 2.2rem;
-
-               > a {
-                  font-family: "NanumSquareRound";
-                  &::before {
-                     display: inline-block;
-                     padding-right: 1rem;
-                     content: ">>";
-                  }
+            > ul {
+               display: flex;
+               justify-content: space-around;
+               li {
                }
             }
+         }
+      }
+
+      footer {
+         position: absolute;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         height: 3rem;
+         padding: 0;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+
+         > h1 {
+            font-size: 1.2rem;
          }
       }
    }

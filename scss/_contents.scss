@@ -4,41 +4,97 @@ html {
 
 body {
    height: 100%;
+   background-color: var(--white);
 
    &::before {
       @include d-bg-set($opacity: 1);
-      background: url(../images/bg.jpg) repeat center / cover;
+      top: 4rem;
+      background: url(../images/bg.jpg) no-repeat center / cover;
    }
-
-   display: flex;
-   justify-content: center;
-   align-items: center;
 }
 
-main {
+.wrapper {
+   display: grid;
+   grid-template-areas:
+      "header  .   ."
+      "header  main   main"
+      "footer  footer   footer";
+   grid-template-rows: 1fr 5fr 1fr;
+   grid-template-columns: 1.2fr 3fr;
+
    position: relative;
-   transform: translateY(-30%);
-   color: #fff;
+   max-width: 1200px;
+   min-height: 100%;
+   margin: 0 auto;
 
-   h1 {
-      font-size: 4.2rem;
+   header {
+      grid-area: header;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
 
-      & + ul {
-         padding: 7rem 0 0 2rem;
+      .title-logo {
+         position: relative;
+         transform: translate(1rem, 0.5rem);
+         color: rgba(61, 61, 61, 0.658);
+         letter-spacing: 0.2rem;
+         font-weight: normal;
+      }
 
-         li {
-            font-size: 2rem;
-            line-height: 3.2rem;
-
-            > a {
-               font-family: "NanumSquareRound";
-               &::before {
-                  display: inline-block;
-                  padding-right: 1rem;
-                  content: ">>";
-               }
+      > nav {
+         padding: 0 0 0 1.5rem;
+         > ul {
+            padding: 2rem 0 0;
+            li {
+               padding: 1rem 0 0;
             }
          }
+      }
+   }
+
+   main {
+      grid-area: main;
+      padding: 1rem;
+
+      > ul {
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         gap: 1rem;
+         flex-wrap: wrap;
+
+         > li {
+            position: relative;
+            font-size: 0.85rem;
+            box-sizing: border-box;
+            padding: 0.5rem 1.5rem;
+
+            &::after {
+               display: block;
+               content: "";
+               position: absolute;
+               left: 0;
+               right: 0;
+               top: 0;
+               bottom: 0;
+               z-index: -1;
+               background-color: rgba(189, 17, 17, 0.644);
+               border-radius: 1rem;
+            }
+         }
+      }
+   }
+
+   footer {
+      grid-area: footer;
+      padding: 1rem 0 0;
+
+      > h1 {
+         transform: translateX(1rem);
+         font-size: 1.5rem;
+         color: var(--white);
+         font-weight: normal;
+         letter-spacing: 0.2rem;
       }
    }
 }
