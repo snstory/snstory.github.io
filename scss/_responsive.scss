@@ -10,9 +10,13 @@
             padding: 0 0 2rem 0;
 
             > ul {
-               display: flex;
-               justify-content: space-around;
+               display: grid;
+               grid-template-columns: repeat(4, 1fr);
+               gap: 1rem;
+
                li {
+                  background-color: red;
+                  padding-bottom: 1rem;
                }
             }
          }

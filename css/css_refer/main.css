@@ -250,7 +250,7 @@ html {
 
 body {
   height: 100%;
-  background-color: var(--white);
+  background-color: rgb(39, 27, 27);
 }
 body::before {
   display: block;
@@ -285,7 +285,7 @@ body::before {
 .wrapper header .title-logo {
   position: relative;
   transform: translate(1rem, 0.5rem);
-  color: rgba(61, 61, 61, 0.658);
+  color: rgba(235, 235, 235, 0.788);
   letter-spacing: 0.2rem;
   font-weight: normal;
 }
@@ -296,26 +296,40 @@ body::before {
   padding: 2rem 0 0;
 }
 .wrapper header > nav > ul li {
-  padding: 1rem 0 0;
+  padding: 0.5rem 0 0;
+}
+.wrapper header > nav > ul li > a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.wrapper header > nav > ul li > a:hover {
+  background-color: rgba(94, 10, 10, 0.644);
 }
 .wrapper main {
   grid-area: main;
   padding: 1rem;
 }
-.wrapper main > ul {
+.wrapper main .intro {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.wrapper main .portfolio > ul {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
 }
-.wrapper main > ul > li {
+.wrapper main .portfolio > ul > li {
   position: relative;
   font-size: 0.85rem;
   box-sizing: border-box;
   padding: 0.5rem 1.5rem;
 }
-.wrapper main > ul > li::after {
+.wrapper main .portfolio > ul > li::after {
   display: block;
   content: "";
   position: absolute;
@@ -326,6 +340,9 @@ body::before {
   z-index: -1;
   background-color: rgba(189, 17, 17, 0.644);
   border-radius: 1rem;
+}
+.wrapper main .portfolio > ul > li:hover::after {
+  background-color: rgba(17, 92, 189, 0.644);
 }
 .wrapper footer {
   grid-area: footer;
@@ -366,8 +383,13 @@ body::before {
     padding: 0 0 2rem 0;
   }
   .wrapper header > nav > ul {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .wrapper header > nav > ul li {
+    background-color: red;
+    padding-bottom: 1rem;
   }
   .wrapper footer {
     position: absolute;

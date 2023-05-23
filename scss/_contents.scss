@@ -4,7 +4,7 @@ html {
 
 body {
    height: 100%;
-   background-color: var(--white);
+   background-color: rgb(39, 27, 27);
 
    &::before {
       @include d-bg-set($opacity: 1);
@@ -36,17 +36,30 @@ body {
       .title-logo {
          position: relative;
          transform: translate(1rem, 0.5rem);
-         color: rgba(61, 61, 61, 0.658);
+         color: rgba(235, 235, 235, 0.788);
          letter-spacing: 0.2rem;
          font-weight: normal;
       }
 
       > nav {
          padding: 0 0 0 1.5rem;
+
          > ul {
             padding: 2rem 0 0;
+
             li {
-               padding: 1rem 0 0;
+               padding: 0.5rem 0 0;
+
+               > a {
+                  display: block;
+                  // text-align: center;
+                  padding: 0.5rem 1rem;
+                  border-radius: 0.5rem;
+
+                  &:hover {
+                     background-color: rgba(94, 10, 10, 0.644);
+                  }
+               }
             }
          }
       }
@@ -56,30 +69,43 @@ body {
       grid-area: main;
       padding: 1rem;
 
-      > ul {
+      .intro {
+         padding: 1rem;
          display: flex;
-         justify-content: flex-start;
+         justify-content: center;
          align-items: flex-start;
-         gap: 1rem;
-         flex-wrap: wrap;
+      }
 
-         > li {
-            position: relative;
-            font-size: 0.85rem;
-            box-sizing: border-box;
-            padding: 0.5rem 1.5rem;
+      .portfolio {
+         > ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
 
-            &::after {
-               display: block;
-               content: "";
-               position: absolute;
-               left: 0;
-               right: 0;
-               top: 0;
-               bottom: 0;
-               z-index: -1;
-               background-color: rgba(189, 17, 17, 0.644);
-               border-radius: 1rem;
+            > li {
+               position: relative;
+               font-size: 0.85rem;
+               box-sizing: border-box;
+               padding: 0.5rem 1.5rem;
+
+               &::after {
+                  display: block;
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  z-index: -1;
+                  background-color: rgba(189, 17, 17, 0.644);
+                  border-radius: 1rem;
+               }
+
+               &:hover::after {
+                  background-color: rgba(17, 92, 189, 0.644);
+               }
             }
          }
       }
