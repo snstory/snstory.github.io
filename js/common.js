@@ -1,6 +1,6 @@
 (($) => {
 
-   const submenus = {
+   const pageCtrl = {
       _menu: null,
       _layers: null,
       _strOn: "on",
@@ -8,35 +8,35 @@
       _speed: 500,
 
       setting: () => {
-         submenus._menu = $(submenus.opt.menu);
-         submenus._layers = $(submenus.opt.layers);
-         submenus._strOn = submenus.opt.strOn;
-         submenus._keyNo = submenus.opt.keyNo;
-         submenus._speed = submenus.opt.speed;
+         pageCtrl._menu = $(pageCtrl.opt.menu);
+         pageCtrl._layers = $(pageCtrl.opt.layers);
+         pageCtrl._strOn = pageCtrl.opt.strOn;
+         pageCtrl._keyNo = pageCtrl.opt.keyNo || pageCtrl._keyNo;
+         pageCtrl._speed = pageCtrl.opt.speed;
 
-         if (submenus._menu === null) return false;
-         if (submenus._layers === null) return false;
-         if (submenus._menu.length !== submenus._layers.length) return false;
+         if (pageCtrl._menu === null) return false;
+         if (pageCtrl._layers === null) return false;
+         if (pageCtrl._menu.length !== pageCtrl._layers.length) return false;
 
-         $.each(submenus._menu, (i, n) => {
+         $.each(pageCtrl._menu, (i, n) => {
             $(n).click((e) => {
                e.preventDefault();
-               submenus._keyNo = i;
-               submenus.engine();
+               pageCtrl._keyNo = i;
+               pageCtrl.engine();
             });
          });
 
-         return submenus;
+         return pageCtrl;
       },
 
       engine: () => {
-         keyNo = submenus._keyNo;
-         menu = submenus._menu;
-         layers = submenus._layers;
-         strOn = submenus._strOn;
+         keyNo = pageCtrl._keyNo;
+         menu = pageCtrl._menu;
+         layers = pageCtrl._layers;
+         strOn = pageCtrl._strOn;
 
-         submenus.menuProc(keyNo, menu, strOn);
-         submenus.layerProc(keyNo, layers);
+         pageCtrl.menuProc(keyNo, menu, strOn);
+         pageCtrl.layerProc(keyNo, layers);
       },
 
       menuProc: (keyNo, menu, strOn) => {
@@ -50,27 +50,27 @@
             if (i === keyNo) {
                $(n).stop(0, 0)
                   .css({ opacity: 1 })
-                  .slideDown(submenus._speed);
+                  .slideDown(pageCtrl._speed);
             }
             else {
                $(n).stop(0, 0)
                   .css({ opacity: .3 })
-                  .slideUp(submenus._speed);
+                  .slideUp(pageCtrl._speed);
             }
          });
       },
 
       init: (opt) => {
-         submenus.opt = $.extend({}, opt);
-         submenus.setting().engine();
+         pageCtrl.opt = $.extend({}, opt);
+         pageCtrl.setting().engine();
       },
    };
 
-   submenus.init({
+   pageCtrl.init({
       menu: ".lnb-menu > li > a",
       layers: ".inner-wrap > section",
       strOn: "on",
-      keyNo: 1,
+      // keyNo: 1,
       speed: 500,
    });
 

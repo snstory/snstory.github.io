@@ -315,10 +315,36 @@ body::before {
   display: none;
 }
 .wrapper main .intro {
-  padding: 1rem;
+  max-width: 25rem;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+.wrapper main .intro > * {
+  padding: 0 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.wrapper main .intro > *:first-child {
+  padding-top: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.wrapper main .intro > *:last-child {
+  padding-bottom: 1.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.wrapper main .intro > h2 {
+  padding-bottom: 1rem;
+}
+.wrapper main .intro > p {
+  line-height: 1.25rem;
+}
+.wrapper main .intro > p.br {
+  padding-bottom: 1rem;
 }
 .wrapper main .portfolio.ready > ul > li::after {
   background-color: rgba(17, 92, 189, 0.644);
