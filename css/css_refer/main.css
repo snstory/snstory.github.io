@@ -413,18 +413,20 @@ body::before {
     grid-template-columns: initial;
   }
   .wrapper header > nav {
-    padding: 0 0 2rem 0;
+    min-width: 16rem;
+    padding: 0 0.5rem 2rem;
   }
   .wrapper header > nav > ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(auto, 1fr));
+    gap: 0;
   }
   .wrapper header > nav > ul li {
-    padding: 0 1rem 1rem;
+    font-size: 0.65rem;
   }
   .wrapper header > nav > ul li > a {
     text-align: center;
+    padding: 0.5rem 1rem;
   }
   .wrapper footer {
     position: absolute;
@@ -439,5 +441,10 @@ body::before {
   }
   .wrapper footer > h1 {
     font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .wrapper header > nav > ul li > a {
+    display: inline-block;
   }
 }/*# sourceMappingURL=main.css.map */

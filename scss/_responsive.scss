@@ -7,18 +7,21 @@
 
       header {
          > nav {
-            padding: 0 0 2rem 0;
+            min-width: 16rem;
+            padding: 0 0.5rem 2rem;
 
             > ul {
                display: grid;
-               grid-template-columns: repeat(4, 1fr);
-               gap: 1rem;
+               grid-template-columns: repeat(4, minmax(auto, 1fr));
+               gap: 0;
 
                li {
-                  padding: 0 1rem 1rem;
+                  font-size: 0.65rem;
+                  // padding: 0 0 1rem;
 
                   > a {
                      text-align: center;
+                     padding: 0.5rem 1rem;
                   }
                }
             }
@@ -38,6 +41,22 @@
 
          > h1 {
             font-size: 1.2rem;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 340px) {
+   .wrapper {
+      header {
+         > nav {
+            > ul {
+               li {
+                  > a {
+                     display: inline-block;
+                  }
+               }
+            }
          }
       }
    }
