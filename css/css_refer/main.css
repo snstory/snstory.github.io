@@ -303,12 +303,15 @@ body::before {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
-.wrapper header > nav > ul li > a:hover {
+.wrapper header > nav > ul li > a.on, .wrapper header > nav > ul li > a:hover {
   background-color: rgba(94, 10, 10, 0.644);
 }
 .wrapper main {
   grid-area: main;
-  padding: 1rem;
+  padding: 1rem 1rem 5rem;
+}
+.wrapper main .inner-wrap > section {
+  display: none;
 }
 .wrapper main .intro {
   padding: 1rem;
@@ -388,8 +391,10 @@ body::before {
     gap: 1rem;
   }
   .wrapper header > nav > ul li {
-    background-color: red;
-    padding-bottom: 1rem;
+    padding: 0 1rem 1rem;
+  }
+  .wrapper header > nav > ul li > a {
+    text-align: center;
   }
   .wrapper footer {
     position: absolute;

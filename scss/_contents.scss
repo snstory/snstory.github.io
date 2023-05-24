@@ -52,10 +52,10 @@ body {
 
                > a {
                   display: block;
-                  // text-align: center;
                   padding: 0.5rem 1rem;
                   border-radius: 0.5rem;
 
+                  &.on,
                   &:hover {
                      background-color: rgba(94, 10, 10, 0.644);
                   }
@@ -67,7 +67,11 @@ body {
 
    main {
       grid-area: main;
-      padding: 1rem;
+      padding: 1rem 1rem 5rem;
+
+      .inner-wrap > section {
+         display: none;
+      }
 
       .intro {
          padding: 1rem;

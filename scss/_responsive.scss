@@ -15,8 +15,11 @@
                gap: 1rem;
 
                li {
-                  background-color: red;
-                  padding-bottom: 1rem;
+                  padding: 0 1rem 1rem;
+
+                  > a {
+                     text-align: center;
+                  }
                }
             }
          }
