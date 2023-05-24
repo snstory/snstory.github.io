@@ -422,11 +422,11 @@ body::before {
     gap: 0;
   }
   .wrapper header > nav > ul li {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
   .wrapper header > nav > ul li > a {
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
   }
   .wrapper footer {
     position: absolute;
