@@ -271,6 +271,7 @@ body::before {
   grid-template-areas: "header  .   ." "header  main   main" "footer  footer   footer";
   grid-template-rows: 1fr 5fr 1fr;
   grid-template-columns: 1.2fr 3fr;
+  gap: 1rem;
   position: relative;
   max-width: 1200px;
   min-height: 100%;
@@ -318,6 +319,9 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+.wrapper main .portfolio.ready > ul > li::after {
+  background-color: rgba(17, 92, 189, 0.644);
 }
 .wrapper main .portfolio > ul {
   display: flex;
