@@ -2,6 +2,55 @@
 @import "functions";
 @import "mixin";
 @import "default";
+
+// font-family: 'NanumSquareRoundLight';
+// font-family: 'NanumSquareRound';
+// font-family: 'NanumSquareRoundBold';
+// font-family: 'NanumSquareRoundExtraBold';
+
+.wrapper {
+   position: relative;
+   &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      width: 300px;
+      height: 25px;
+      background-color: rgb(255, 71, 71);
+      border-radius: 100%;
+   }
+}
+
+// Default 320px
 @import "contents";
+
+// 375px
+@include mobile {
+   @import "./responsive/mobile";
+}
+
+// 768px
+@include tablet {
+   // @import "./responsive/tablet";
+}
+
+// 1024px
+@include pc {
+   // @import "./responsive/pc";
+}
+
+// 1440px
+@include max {
+   // @import "./responsive/max";
+}
+
+// 1510px
+@include max-over {
+   // @import "./responsive/max-over";
+}
+
 @import "animation";
-@import "responsive";

@@ -172,13 +172,13 @@ body.hidden {
 main {
    font-size: 1.4rem;
    line-height: 2.1rem;
-   color: #fff;
+   color: var(--color-1);
    display: block;
 }
 
 a,
 button {
-   color: #fff;
+   color: var(--color-1);
 }
 
 p,
@@ -216,7 +216,7 @@ legend,
    transition: all 0.5s;
    line-height: 5rem;
    background: #000;
-   color: #fff;
+   color: var(--color-1);
    text-align: center;
    z-index: 100;
 }
