@@ -257,7 +257,6 @@ legend,
     display: block;
     content: "";
     min-height: 10rem;
-    margin-top: 2rem;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -396,6 +395,7 @@ legend,
 }
 .wrap-inner > footer {
   background-color: var(--white-1);
+  box-sizing: border-box;
 }
 @media screen and (min-width: 768px) {
   .wrap-inner > footer {
@@ -414,13 +414,18 @@ legend,
   border-color: var(--border-2);
   border-radius: 1rem;
   min-width: calc(320px - 2rem);
-  margin: 1rem 0.5rem;
+  margin: 1rem 0.5rem 0;
   padding: 1rem 0.5rem 1.5rem;
   background-color: var(--bg-4);
   color: var(--color-5);
 }
+@media screen and (min-width: 768px) {
+  .wrap-inner > footer > .footer-inner {
+    margin: 0 0.5rem;
+  }
+}
 .wrap-inner > footer > .footer-inner > h1 {
-  padding: 0 0 1rem;
+  padding: 0 0 1rem 0.75rem;
   font-size: 1.2rem;
   font-weight: bold;
   font-family: "NanumSquareRoundBold";
@@ -434,6 +439,7 @@ legend,
   }
 }
 .wrap-inner > footer > .footer-inner > section {
+  padding-left: 0.75rem;
   font-size: 0.75rem;
   font-family: "NanumSquareRound";
   line-height: 1.2rem;
