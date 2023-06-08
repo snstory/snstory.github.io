@@ -260,6 +260,15 @@ legend,
     margin-top: 2rem;
   }
 }
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+  }
+}
 
 .wrap-inner > header {
   padding: 1rem 0;
@@ -272,10 +281,15 @@ legend,
   letter-spacing: 0.5rem;
 }
 .wrap-inner > main {
-  min-width: 320px;
+  min-width: calc(320px - 2rem);
   margin: 0 0.5rem;
   font-size: 0.8rem;
   line-height: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .wrap-inner > main {
+    padding-bottom: 1.5rem;
+  }
 }
 .wrap-inner > main > .inner-wrap {
   display: flex;
@@ -365,6 +379,7 @@ legend,
   border-color: var(--border-2);
   border-radius: 0.5rem;
   display: block;
+  padding: 0.25rem 0.5rem;
   background-color: var(--bg-3);
   color: var(--color-3);
 }
@@ -380,7 +395,6 @@ legend,
   color: var(--bg-3);
 }
 .wrap-inner > footer {
-  min-width: 320px;
   background-color: var(--white-1);
 }
 @media screen and (min-width: 768px) {
@@ -399,9 +413,9 @@ legend,
   border-style: solid;
   border-color: var(--border-2);
   border-radius: 1rem;
-  margin: 1rem 0.5rem 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
+  min-width: calc(320px - 2rem);
+  margin: 1rem 0.5rem;
+  padding: 1rem 0.5rem 1.5rem;
   background-color: var(--bg-4);
   color: var(--color-5);
 }
@@ -410,11 +424,20 @@ legend,
   font-size: 1.2rem;
   font-weight: bold;
   font-family: "NanumSquareRoundBold";
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .wrap-inner > footer > .footer-inner > h1 {
+    text-align: left;
+  }
 }
 .wrap-inner > footer > .footer-inner > section {
   font-size: 0.75rem;
   font-family: "NanumSquareRound";
   line-height: 1.2rem;
+}
+.wrap-inner > footer > .footer-inner > section > p:first-child {
+  font-weight: bold;
 }/*# sourceMappingURL=main.css.map */

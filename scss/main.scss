@@ -31,6 +31,9 @@
          margin-top: 2rem;
       }
    }
+   @include pc {
+      @include abs-middle($pc-wh);
+   }
 }
 
 // Default 320px

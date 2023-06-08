@@ -10,10 +10,13 @@
       letter-spacing: 0.5rem;
    }
    > main {
-      min-width: $min-wh;
+      min-width: calc($min-wh - 2rem);
       margin: 0 0.5rem;
       font-size: 0.8rem;
       line-height: 1.2rem;
+      @include tablet {
+         padding-bottom: 1.5rem;
+      }
       > .inner-wrap {
          display: flex;
          flex-flow: row wrap;
@@ -75,7 +78,7 @@
                   > a {
                      @include def-border-radius($bradius: 0.5rem, $padding: 0.25rem 0);
                      display: block;
-                     // padding: 0.25rem 0;
+                     padding: 0.25rem 0.5rem;
                      background-color: var(--bg-3);
                      color: var(--color-3);
                      &:hover {
@@ -96,8 +99,8 @@
       }
    }
    > footer {
-      min-width: $min-wh;
       background-color: var(--white-1);
+
       @include tablet {
          position: fixed;
          left: 0;
@@ -107,9 +110,9 @@
       }
       > .footer-inner {
          @include def-border-radius;
-         margin: 1rem 0.5rem 1rem;
-         padding-top: 1rem;
-         padding-bottom: 1.5rem;
+         min-width: calc($min-wh - 2rem);
+         margin: 1rem 0.5rem;
+         padding: 1rem 0.5rem 1.5rem;
          background-color: var(--bg-4);
          color: var(--color-5);
          > h1 {
@@ -117,13 +120,20 @@
             font-size: 1.2rem;
             font-weight: bold;
             font-family: "NanumSquareRoundBold";
+            text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.5rem;
+            @include tablet {
+               text-align: left;
+            }
          }
          > section {
             font-size: 0.75rem;
             font-family: "NanumSquareRound";
             line-height: 1.2rem;
+            > p:first-child {
+               font-weight: bold;
+            }
          }
       }
    }
