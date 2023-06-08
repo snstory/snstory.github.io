@@ -252,6 +252,14 @@ legend,
   background-color: rgb(255, 71, 71);
   border-radius: 100%;
 }
+@media screen and (min-width: 768px) {
+  .wrapper::after {
+    display: block;
+    content: "";
+    min-height: 10rem;
+    margin-top: 2rem;
+  }
+}
 
 .wrap-inner > header {
   padding: 1rem 0;
@@ -350,14 +358,13 @@ legend,
   border-top: 1px solid var(--border-2);
 }
 .wrap-inner > main > .inner-wrap > section > ul > li > a {
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0;
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-2);
   border-radius: 0.5rem;
   display: block;
-  padding: 0.25rem 0.8rem;
   background-color: var(--bg-3);
   color: var(--color-3);
 }
@@ -373,19 +380,32 @@ legend,
   color: var(--bg-3);
 }
 .wrap-inner > footer {
+  min-width: 320px;
+  background-color: var(--white-1);
+}
+@media screen and (min-width: 768px) {
+  .wrap-inner > footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 10rem;
+  }
+}
+.wrap-inner > footer > .footer-inner {
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-2);
   border-radius: 1rem;
-  margin: 1rem 0.25rem 1rem;
+  margin: 1rem 0.5rem 1rem;
   padding-top: 1rem;
   padding-bottom: 1.5rem;
   background-color: var(--bg-4);
   color: var(--color-5);
 }
-.wrap-inner > footer > h1 {
+.wrap-inner > footer > .footer-inner > h1 {
   padding: 0 0 1rem;
   font-size: 1.2rem;
   font-weight: bold;
@@ -393,7 +413,7 @@ legend,
   text-transform: uppercase;
   letter-spacing: 0.5rem;
 }
-.wrap-inner > footer > section {
+.wrap-inner > footer > .footer-inner > section {
   font-size: 0.75rem;
   font-family: "NanumSquareRound";
   line-height: 1.2rem;

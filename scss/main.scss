@@ -23,6 +23,14 @@
       background-color: rgb(255, 71, 71);
       border-radius: 100%;
    }
+   @include tablet {
+      &::after {
+         display: block;
+         content: "";
+         min-height: 10rem;
+         margin-top: 2rem;
+      }
+   }
 }
 
 // Default 320px
