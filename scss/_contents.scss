@@ -52,7 +52,7 @@
             @each $icon in $icons {
                $i: index(
                   $list: $icons,
-                  $value: $icon,
+                  $value: $icon
                );
                &:nth-child(#{$i}) {
                   > h2 {
